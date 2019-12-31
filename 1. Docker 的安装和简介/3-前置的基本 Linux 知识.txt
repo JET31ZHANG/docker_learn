@@ -1,0 +1,9 @@
+学习 Docker 需要一些前置的 Linux 知识
+
+
+前台程序和后台程序的差别
+Ctrl+c 中断运行中的前台程序
+    sleep 10  # 睡眠 10s, 可以用 Ctrl+c 中断
+>   重定向符号
+    echo "hello"            # 输出到终端
+    ehco "hello" > a.txt    # 输出到文件 a.txt
