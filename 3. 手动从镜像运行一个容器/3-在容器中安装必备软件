@@ -1,0 +1,6 @@
+# 现在 Docker 容器已经在后台运行起来了, 在里面运行一个 flask web 程序
+# 用 exec 参数在运行中的 Docker 容器里面执行命令安装必要的依赖库
+
+docker exec demo apt update
+docker exec demo apt -y install python3 python3-pip
+docker exec demo pip3 install flask

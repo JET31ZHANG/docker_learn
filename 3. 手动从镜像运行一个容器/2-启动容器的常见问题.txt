@@ -1,0 +1,22 @@
+端口或者容器名被占用后容器无法启动的情况和解决方法
+
+1. 占用 3456 端口
+docker run -t -d -p 3456:5000 --name test ubuntu:18.04
+
+2. 运行一个使用 3456 端口的容器, 会发现因为端口被占用而失败
+docker run -t -d -p 3456:5000 --name test1 ubuntu:18.04
+
+3. 删除 test 容器来关闭对 3456 端口的占用
+docker rm -f test1
+
+4. 再次运行容器发现仍然失败, 因为名字已经存在
+    第 2 个命令虽然因为端口被占用运行失败, 但实际上容器已经生成了
+    docker run -t -d -p 3456:5000 --name test1 ubuntu:18.04
+
+5. 这时候要么改名字要么删除容器重来
+改名字
+docker run -t -d -p 3456:5000 --name test2 ubuntu:18.04
+
+删容器
+docker rm test1
+docker run -t -d -p 3456:5000 --name test1 ubuntu:18.04

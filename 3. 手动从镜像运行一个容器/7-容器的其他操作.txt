@@ -1,0 +1,21 @@
+容器的常用操作命令
+
+
+# 启动一个停止运行的容器
+docker start demo
+
+# 查看正在运行的容器
+docker ps
+
+# 停止容器, demo 是容器的名字
+docker stop demo
+
+# 再查看正在运行的容器, 已经看不到 demo 了
+docker ps
+
+# 可以用 -a 参数查看所有容器, 包括未运行的
+docker ps -a
+
+# 删除被停止的容器和运行中的容器
+docker rm demo
+docker rm -f demo1

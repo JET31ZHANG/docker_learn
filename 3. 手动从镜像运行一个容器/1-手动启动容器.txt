@@ -1,0 +1,29 @@
+手动在本地电脑的 Docker 容器中运行一个 Web 应用
+
+
+# 下面的命令启动一个 Docker 容器
+docker run -d -t -p 8000:5000 --name demo ubuntu:18.04
+
+这条命令的具体解释如下
+run 表示启动一个新的 Docker 容器
+-d 的意思是让容器在后台运行
+-t 极少能用到, 用于让一个空白的 ubuntu 镜像在后台运行
+-p 用于指定端口映射, 表示在本机访问 8000 会被自动转到容器中的 5000 端口
+    必须保证本机没有其他程序占用了 8000 端口, 否则这里会失败
+--name demo 指定了容器的名字是 demo
+ubuntu:18.04 是启动容器使用的镜像名
+    Docker 会自动从镜像服务器去下载这个镜像
+
+
+>docker run -d -t -p 8000:5000 --name demo ubuntu:18.04
+Unable to find image 'ubuntu:18.04' locally
+18.04: Pulling from library/ubuntu
+2746a4a261c9: Pull complete
+4c1d20cdee96: Pull complete
+0d3160e1d0de: Pull complete
+c8e37668deea: Pull complete
+Digest: sha256:250cc6f3f3ffc5cdaa9d8f4946ac79821aafb4d3afc93928f0de9336eba21aa4
+Status: Downloaded newer image for ubuntu:18.04
+9724d8f8678c04f247c6789b9a8b735e9ab58ef840f6a4207271750340e8ef09
+
+最后一行是容器的 ID, 每一个容器的 ID 都是不一样的

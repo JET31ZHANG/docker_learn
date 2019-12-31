@@ -1,0 +1,14 @@
+刚才写了 2 个脚本用于安装依赖库和运行程序
+现在用脚本的方式运行 a.py 这个程序
+可以先删除容器重新开始, 也可以开一个新容器 demo1
+
+
+# 由于之前已经自动下载过 ubuntu:18.04 所以这次不会重新下载镜像, 速度很快
+docker run -t -d -p 7000:5000 --name demo1 ubuntu:18.04
+
+docker exec demo1 mkdir /code
+docker cp install.sh "demo1:/code/install.sh"
+docker cp run.sh "demo1:/code/run.sh/"
+docker cp a.py "demo1:/code/a.py"
+docker exec demo1 bash /code/install.sh
+docker exec demo1 bash /code/run.sh
