@@ -1,0 +1,35 @@
+服务器 Docker 部署
+
+之前的内容介绍了如何在本地计算机中使用 Docker
+现在要介绍的是如何在服务器用 Docker 部署
+
+在服务器安装 Docker 的方法如下(以 Ubuntu 为例)
+我们把安装的命令写成脚本, 和程序一起上传到服务器
+
+安装脚本和程序文件都放在本机 app 目录下, 一共有如下 3 个文件
+install-docker.sh   在 Ubuntu 服务器安装 Docker 的脚本
+Dockerfile          Dockerfile
+app.py              web 程序
+
+
+可以使用 scp 命令把 app 目录拷贝到服务器中
+Windows 用户可以通过 GitBash 来使用 scp 这个命令
+(也可以使用 FileZilla 等程序上传文件)
+scp -r app ubuntu@ip:/tmp
+
+
+由于已经把 Dockerfile 和程序上传到了服务器
+因此在服务器上运行安装脚本成功安装 Docker 后
+剩下的步骤就和本地使用 Dockerfile 意义
+
+# 安装 Docker
+sh /tmp/app/install-docker.sh
+
+
+由于 Linux 中的 Docker 程序需要 root 权限
+所以下面的命令都加上了 sudo 提权
+# 打包
+sudo docker build -t webimage .
+
+# 运行
+sudo docker run -d -p 8000:5000 --name serverdemo webimage
