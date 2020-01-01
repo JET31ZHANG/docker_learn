@@ -10,6 +10,14 @@ docker build -t webimage .
 # 可以使用下面的命令查看本机存储的镜像(包括下载的和构建的)
 docker images
 
+REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+webimage            latest              70f90470e98e        21 hours ago        473MB
+ubuntu              18.04               549b9b86cb8d        13 days ago         64.2MB
+
+可以发现本机有两个镜像, 一个是 ubuntu 镜像, 另一个是自己构建的 webimage 镜像
+我们使用 ubuntu 时是 ubuntu:18.04, 但实际上它真正的名字是 ubuntu, 18.04 是 TAG(标签)
+自己构建的 webimage 没有 TAG, 会自动加上一个 latest 的默认标签
+可以给一个镜像创造多个 TAG, 相当于不同的版本
 
 # 运行容器
 docker run -p 8001:5000 --name demo2 webimage
