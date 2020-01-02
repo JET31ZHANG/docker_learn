@@ -1,0 +1,8 @@
+在更改了 app.py  的内容后, 再次运行 docker-compose up
+这时候会发现它并未重新构建镜像
+
+这是因为 Dockerfile 并未修改, 所以 Docker 复用了已有的镜像
+所以修改并未生效
+
+这时候应该重新构建镜像并运行, 或者加上 --build 参数来强制 build
+docker-compose up --build

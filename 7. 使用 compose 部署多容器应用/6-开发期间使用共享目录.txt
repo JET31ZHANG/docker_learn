@@ -1,0 +1,11 @@
+在开发过程中, 如果每次修改文件都要重新 build 再启动容器会比较繁琐
+我们可以使用共享目录的方式来直接修改程序文件
+这样就大大提高了开发效率
+
+
+参考 compose2
+
+需要注意的是, 在 Dockerfile 文件中
+# COPY app.py /code/app.py
+copy app.py 这一行是注释掉的
+因为 docker-compose.yml 中把当前目录挂载到了容器的 /code

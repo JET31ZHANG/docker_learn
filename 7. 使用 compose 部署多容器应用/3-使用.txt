@@ -1,0 +1,24 @@
+Compose 的使用
+
+
+Compose 把一组容器作为一个项目来管理, 并且会设置好容器间互联的内部网络
+每一个容器在 Compose 中被称之为服务(Service)
+
+如同 Docker 使用一个 Dockerfile 来描述一个镜像的构建一样
+Compose 使用一个 docker-compose.yml 文件来描述 Compose 项目的构建
+
+
+下面使用一个简单的例子来描述如何使用 Compose 管理多容器应用
+
+在 compose1 目录下运行下面的命令启动项目
+项目运行起来后, 用 Ctrl-c 终止项目的运行
+docker-compose up
+
+用 -d 参数让项目后台运行
+docker-compose up -d
+
+用 stop 暂停容器的运行
+docker-compose stop
+
+用 down 关闭并删除项目的所有容器
+docker-compose down

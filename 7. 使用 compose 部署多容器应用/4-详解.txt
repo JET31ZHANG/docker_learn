@@ -1,0 +1,11 @@
+compose1 目录中的项目由 pyweb redisdemo 2 个容器组成
+    pyweb 用于显示一个页面
+    redisdemo 用于统计页面点击次数
+
+
+查看 docker-compose.yml 文件注释
+
+
+app.py 中, 一个注意的点是 redis 连接配置中, host 为 redisdemo
+redisdemo 是 compose 中创建的主机名，由 docker-compose.yml 中指定
+compose 会给每个容器提供 DNS 服务保证容器间互相访问
