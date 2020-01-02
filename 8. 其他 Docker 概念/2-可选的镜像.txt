@@ -1,0 +1,26 @@
+介绍基于 Alpine Linux 的 alpine 镜像
+alpine 已经是官方推荐的打包基础镜像
+https://hub.docker.com/_/alpine
+
+
+在下面链接对比
+可以发现基于 Alpine 的 python 镜像尺寸要比基于普通 Linux 的 python 镜像小很多
+https://hub.docker.com/_/python?tab=tags
+
+
+标签和默认标签(latest)
+python:3.7-alpine3.8
+python
+python:latest
+
+python 表示我们要取 python 镜像
+冒号 : 是分隔符
+: 左边是镜像的名字, 右边是镜像的标签, 可以认为是版本
+3.7-alpine3.8 意思是它是 python3.7, 但是是基于 alpine3.8 制作的
+
+当我们只输入 python 这个名字的时候, 它会自动补成 python:latest 最新版
+实际上 python 和 python:latest 是一样的
+
+所以可以考虑如下两个用法
+1. 使用专有镜像(比如 python 镜像) 而不是在 ubuntu 上安装软件
+2. 使用基于 alpine 打包的镜像
