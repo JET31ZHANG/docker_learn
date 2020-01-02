@@ -1,0 +1,14 @@
+用 Docker 来发布 C C++ 或者其他平台相关的软件
+这样 Mac Win 用户都可以使用 Linux 软件
+
+
+同时使用多个软件版本
+比如 mongodb3.4 和 mongodb3.6 的升级兼容问题
+
+
+用于快速、方便安装一些服务
+比如 gogs 服务, 官方文档的安装方法比 Docker 麻烦很多
+https://gogs.io/docs/installation
+
+使用 Docker 启动
+docker run -p 3000:3000 gogs/gogs:latest
