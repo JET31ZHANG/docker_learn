@@ -1,0 +1,10 @@
+项目的开发和部署需要不同的设置, 我们通常会使用不同的环境变量来配置环境
+
+
+Compose 的配置文件中可以用 2 种方式
+参考 compose5 目录的 debug.yml 和 prod.yml
+
+在 compose5 目录中运行下面两条命令
+
+docker-compose -f docker-compose.yml -f debug.yml up
+docker-compose -f docker-compose.yml -f prod.yml up
